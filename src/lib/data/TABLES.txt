@@ -1,0 +1,8 @@
+CREATE TABLE jso (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    unit VARCHAR(2) NOT NULL,
+    waktu DATE NOT NULL,
+    service_hour INT NOT NULL,
+    overhaul_hour INT NOT NULL,
+    UNIQUE (unit, waktu)
+);
