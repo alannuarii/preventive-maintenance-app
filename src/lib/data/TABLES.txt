@@ -1,8 +1,7 @@
 CREATE TABLE jso (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    unit VARCHAR(2) NOT NULL,
+    unit INT NOT NULL,
     waktu DATE NOT NULL,
     service_hour INT NOT NULL,
-    overhaul_hour INT NOT NULL,
-    UNIQUE (unit, waktu)
+    ADD CONSTRAINT unique_unit_waktu_service UNIQUE (unit, waktu, service_hour)
 );

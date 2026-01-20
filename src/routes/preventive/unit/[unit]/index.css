@@ -1,0 +1,41 @@
+#calendar {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow-x: auto;
+  /* border: 1px solid #ddd; */
+}
+
+/* Hilangkan garis bawah pada semua teks di dalam kalender */
+#calendar .fc {
+  text-decoration: none;
+  color: black; /* Ubah warna teks jadi hitam */
+}
+
+/* Khusus elemen judul event dan hari di kalender */
+#calendar .fc-event-title,
+#calendar .fc-daygrid-day-number,
+#calendar .fc-col-header-cell-cushion {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+/* Jika ada link di event kalender, agar warna hitam dan tanpa underline */
+#calendar a {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.badge{
+    font-size: 1.1rem;
+}
+
+@media (max-width: 767.98px) {
+  .calendar-container {
+    margin-bottom: 80px !important;
+  }
+}
