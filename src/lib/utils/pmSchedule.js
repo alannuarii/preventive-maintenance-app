@@ -3,13 +3,17 @@ import { generateRandomId } from "./random.js";
 
 export const generatePMSchedule = (units, startDateStr = null, endDateStr = null) => {
     const colorsByUnit = {
-        1: "#FF5733",
-        4: "#33FF57",
-        5: "#3357FF",
-        6: "#F1C40F",
-        7: "#9B59B6",
-        8: "#E67E22",
-        9: "#1ABC9C",
+        3: "#FF5733", // Oranye Merah
+        4: "#33FF57", // Hijau Cerah
+        5: "#3357FF", // Biru Cerah
+        7: "#F1C40F", // Kuning Terang
+        8: "#9B59B6", // Ungu
+        9: "#E67E22", // Oranye Tua
+        10: "#1ABC9C", // Toska
+        11: "#E74C3C", // Merah Bata
+        12: "#3498DB",// Biru Langit
+        13: "#BDC3C7",// Abu-abu Terang
+        15: "#f6917fff" // Biru Violet
     };
 
     const fiveYearHours = 24 * 1825; // default 5 tahun dalam jam
@@ -55,7 +59,7 @@ export const generatePMSchedule = (units, startDateStr = null, endDateStr = null
                 title: `${pmCycle.pm} #${unit}`,
                 start: pmDate.toISOString().slice(0, 10),
                 allDay: true,
-                color: colorsByUnit[unit] || "#000000",
+                color: colorsByUnit[unit],
                 extendedProps: {
                     currentHours: cycleHours,
                     targetHours: targetHours,

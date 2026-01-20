@@ -6,7 +6,8 @@ async function getServiceHour() {
         SELECT DISTINCT ON (unit)
             waktu, unit, service_hour AS jamoperasi
         FROM jso
-        WHERE service_hour >= 0
+        WHERE service_hour >= 0 AND 
+            unit NOT IN (1, 2, 6, 14, 16, 17)
         ORDER BY
             unit ASC,
             id DESC       
