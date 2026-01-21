@@ -1,9 +1,10 @@
 import { onMount, onCleanup, createSignal, Show } from "solid-js";
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import "./index.css";
 import { generatePMSchedule } from "~/lib/utils/pmSchedule";
 import { engines } from "~/lib/data/engineData";
+import {convertDecimalDaysToDaysHours, convertTime} from "~/lib/utils/date"
+import "./index.css";
 
 export default function Home() {
   let calendarRef;
@@ -60,14 +61,14 @@ export default function Home() {
         <div>
           <div class="row gx-5">
             <div class="col-md-8">
-              <h1>tes</h1>
-              <table class="table">
+              <h4 class="fw-bold">Jadwal Pemeliharaan Preventive</h4>
+              <table class="table table-bordered text-center">
                 <thead>
                   <tr>
                     <th scope="col">Unit</th>
                     <th scope="col">Mesin</th>
                     <th scope="col">PM Selanjutnya</th>
-                    <th scope="col">Tanggal</th>
+                    <th scope="col">Waktu Pelaksanaan</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -75,8 +76,8 @@ export default function Home() {
                     <tr>
                       <td>{item.unit}</td>
                       <td>{item.mesin}</td>
-                      <td>{item.pm}</td>
-                      <td>{item.tanggal}</td>
+                      <td>{item.pm.replace(/\s#\d+$/, "")}</td>
+                      <td>{convertTime(item.tanggal)}</td>
                     </tr>
                   ))}
                 </tbody>

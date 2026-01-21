@@ -1,3 +1,9 @@
+.home td,
+.home td .btn,
+.home th {
+  font-size: 0.7rem;
+}
+
 #calendar {
   width: 100%;
   max-width: 900px;
