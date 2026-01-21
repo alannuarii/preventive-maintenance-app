@@ -1,4 +1,4 @@
-import { onMount, onCleanup, createSignal } from "solid-js";
+import { onMount, onCleanup, createSignal, Show } from "solid-js";
 import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import "./index.css";
@@ -58,30 +58,32 @@ export default function Preventive() {
   };
 
   return (
-    <div>
-      <div class="text-center mb-3">
-        <h3 class="title">JADWAL PREVENTIVE MAINTENANCE</h3>
-      </div>
-      <div class="row">
-        <div class="col-md-4 mx-auto mb-3">
-          <label htmlFor="unitSelect" class="form-label">
-            Pilih Mesin:
-          </label>
-          <select class="form-select" id="unitSelect" onChange={handleSelectChange} defaultValue="all">
-            <option value="all">Semua Mesin</option>
-            {currentHours().map(({ unit, mesin }) => (
-              <option value={unit} key={unit}>
-                {mesin}
-              </option>
-            ))}
-          </select>
+    <div class="preventive">
+      <Show when={currentHours().length > 0} fallback={<div>Loading data...</div>}>
+        <div class="text-center mb-3">
+          <h3 class="title">JADWAL PREVENTIVE MAINTENANCE</h3>
         </div>
-      </div>
-      <div class="calendar-container mb-5">
-        <div id="calendar">
-          <div ref={(el) => (calendarRef = el)} />
+        <div class="row">
+          <div class="col-md-4 mx-auto mb-3">
+            <label htmlFor="unitSelect" class="form-label">
+              Pilih Mesin:
+            </label>
+            <select class="form-select" id="unitSelect" onChange={handleSelectChange} defaultValue="all">
+              <option value="all">Semua Mesin</option>
+              {currentHours().map(({ unit, mesin }) => (
+                <option value={unit} key={unit}>
+                  {mesin}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-      </div>
+        <div class="calendar-container mb-5">
+          <div id="calendar">
+            <div ref={(el) => (calendarRef = el)} />
+          </div>
+        </div>
+      </Show>
     </div>
   );
 }
