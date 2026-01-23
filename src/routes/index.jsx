@@ -3,7 +3,8 @@ import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import { generatePMSchedule } from "~/lib/utils/pmSchedule";
 import { engines } from "~/lib/data/engineData";
-import {convertDecimalDaysToDaysHours, convertTime} from "~/lib/utils/date"
+import { convertTime } from "~/lib/utils/date";
+import Timer from "~/components/Timer";
 import "./index.css";
 
 export default function Home() {
@@ -39,6 +40,7 @@ export default function Home() {
         height: "auto",
         contentHeight: "auto",
         aspectRatio: 1.5,
+        headerToolbar: false,
         // eventClick dihilangkan sesuai permintaan
       });
 
@@ -61,10 +63,12 @@ export default function Home() {
         <div>
           <div class="row gx-5">
             <div class="col-md-8">
-              <h4 class="fw-bold">Jadwal Pemeliharaan Preventive</h4>
+              <h4 class="fw-bolder mb-1">PREVENTIVE MAINTENANCE</h4>
+              <h5 class="fw-light">PT PLN Nusantara Power ULPLTD Luwuk</h5>
+              <hr />
               <table class="table table-bordered text-center">
                 <thead>
-                  <tr>
+                  <tr class="table-secondary">
                     <th scope="col">Unit</th>
                     <th scope="col">Mesin</th>
                     <th scope="col">PM Selanjutnya</th>
@@ -84,6 +88,9 @@ export default function Home() {
               </table>
             </div>
             <div class="col-md-4">
+              <div class="py-2 d-flex justify-content-end">
+                <Timer />
+              </div>
               <div class="calendar-container mb-5">
                 <div id="calendar">
                   <div ref={(el) => (calendarRef = el)} />

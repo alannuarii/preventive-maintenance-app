@@ -4,7 +4,6 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense, Show, createEffect } from "solid-js";
 import { MetaProvider, Title, Link } from "@solidjs/meta";
 import Header from "./components/Header";
-import Menu from "./components/Menu";
 import "./app.css";
 
 function RootLayout(props) {
@@ -21,7 +20,6 @@ function RootLayout(props) {
           <div class="container content">
             <Suspense>{props.children}</Suspense>
           </div>
-          <Menu />
         </div>
       </Show>
 

@@ -4,6 +4,11 @@
   font-size: 0.7rem;
 }
 
+.home h4,
+.home h6 {
+  margin: 0;
+}
+
 #calendar {
   width: 100%;
   max-width: 900px;
