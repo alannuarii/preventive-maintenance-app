@@ -2,7 +2,7 @@
   "name": "example-bare",
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev --port 5431",
+    "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start"
   },

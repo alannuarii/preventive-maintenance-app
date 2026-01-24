@@ -19,20 +19,4 @@ pool.on('connect', () => {
     console.log('Client connected to PostgreSQL');
 });
 
-// Event listener untuk log ketika klien idle (siap digunakan kembali)
-pool.on('acquire', () => {
-    console.log('Client acquired from pool');
-});
-
-// Event listener untuk log ketika klien dilepaskan kembali ke pool
-pool.on('release', () => {
-    console.log('Client released to pool');
-});
-
-// Event listener untuk log error pada koneksi
-pool.on('error', (err, client) => {
-    console.error('Unexpected error on idle client', err);
-    process.exit(-1); // Atau tangani error sesuai kebijakan aplikasi Anda
-});
-
 export { pool };

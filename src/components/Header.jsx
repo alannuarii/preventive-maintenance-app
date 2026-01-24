@@ -37,11 +37,6 @@ export default function Header() {
                 </a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <button class="btn btn-sm btn-outline-danger" type="submit">
-                <i class="bi-box-arrow-right me-2"></i>Keluar
-              </button>
-            </form>
           </div>
         </div>
       </nav>

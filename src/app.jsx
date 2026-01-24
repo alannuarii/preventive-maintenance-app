@@ -7,15 +7,21 @@ import Header from "./components/Header";
 import "./app.css";
 
 function RootLayout(props) {
+  const location = useLocation();
+
+  // Jangan tampilkan Header & BackButton jika URL diawali dengan "/auth"
+  const isAuthPage = () => location.pathname.startsWith("/auth");
 
   return (
     <div class="min-vh-100">
-      <div class="app-bg">
-        <Header />
-        <div class="container content">
-          <Suspense>{props.children}</Suspense>
+      <Show when={!isAuthPage()}>
+        <div class="app-bg">
+          <Header />
+          <div class="container content">
+            <Suspense>{props.children}</Suspense>
+          </div>
         </div>
-      </div>
+      </Show>
     </div>
   );
 }
